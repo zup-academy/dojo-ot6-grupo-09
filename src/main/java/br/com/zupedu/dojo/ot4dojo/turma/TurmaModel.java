@@ -2,6 +2,7 @@ package br.com.zupedu.dojo.ot4dojo.turma;
 
 import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ public class TurmaModel {
   @GeneratedValue
   private Long id;
 
+  @Column(unique = true)
   private String nome;
 
   @NotNull

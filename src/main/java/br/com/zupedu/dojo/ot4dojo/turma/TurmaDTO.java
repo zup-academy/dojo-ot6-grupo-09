@@ -13,24 +13,36 @@ import java.time.LocalDate;
 
 public class TurmaDTO {
 
+	@NotBlank
+	@Length(max = 50)
+	private String nome;
 
-    @NotBlank
-    @Length(max = 50)
-    private String nome;
+	@NotNull
+	private LocalDate iniciaEm;
 
-    @NotNull
-    private LocalDate iniciaEm;
+	@NotNull
+	private LocalDate terminaEm;
 
-    @NotNull
-    private LocalDate terminaEm;
+	public TurmaDTO(String nome, LocalDate iniciaEm, LocalDate terminaEm) {
+		this.nome = nome;
+		this.iniciaEm = iniciaEm;
+		this.terminaEm = terminaEm;
+	}
 
-    public TurmaDTO(String nome, LocalDate iniciaEm, LocalDate terminaEm) {
-        this.nome = nome;
-        this.iniciaEm = iniciaEm;
-        this.terminaEm = terminaEm;
-    }
+	public TurmaModel toModel() {
+		return new TurmaModel(this.nome, this.iniciaEm, this.terminaEm);
+	}
 
-    public TurmaModel toModel() {
-        return new TurmaModel(this.nome, this.iniciaEm, this.terminaEm);
-    }
+	public String getNome() {
+		return nome;
+	}
+
+	public LocalDate getIniciaEm() {
+		return iniciaEm;
+	}
+
+	public LocalDate getTerminaEm() {
+		return terminaEm;
+	}
+
 }
