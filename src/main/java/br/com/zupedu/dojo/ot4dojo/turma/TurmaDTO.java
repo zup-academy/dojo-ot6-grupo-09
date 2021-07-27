@@ -1,5 +1,6 @@
 package br.com.zupedu.dojo.ot4dojo.turma;
 
+import br.com.zupedu.dojo.ot4dojo.validator.UniqueValue;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
@@ -15,9 +16,11 @@ public class TurmaDTO {
 
 	@NotBlank
 	@Length(max = 50)
+	@UniqueValue(domainClass = TurmaModel.class, fieldName = "nome" )
 	private String nome;
 
 	@NotNull
+	@UniqueValue(domainClass = TurmaModel.class, fieldName = "iniciaEm")
 	private LocalDate iniciaEm;
 
 	@NotNull

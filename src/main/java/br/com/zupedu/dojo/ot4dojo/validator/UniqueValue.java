@@ -9,13 +9,13 @@ import java.lang.annotation.*;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+
 public @interface UniqueValue {
-    String message() default "Erro de validação";
-
+    String message() default "{Erro de validação}";
     Class<?>[] groups() default {};
-
     Class<? extends Payload>[] payload() default {};
-      Class<?> domainClass();
+    Class<?> domainClass();
+    String fieldName ();
 
 
 }

@@ -22,12 +22,7 @@ public class TurmaController {
 
     @PostMapping("/turmas")
     public ResponseEntity<TurmaResponse> addTurma (@RequestBody @Valid TurmaDTO request){
-    	
-    	Optional<TurmaModel> turma = turmaRepository.findByNome(request.getNome());
-    	if(turma.isPresent()) {
-    		return ResponseEntity.badRequest().build();
-    	}
-        
+
     	TurmaModel newTurma = request.toModel();
         turmaRepository.save(newTurma);
         return ResponseEntity.status(201).body(new TurmaResponse(newTurma));
