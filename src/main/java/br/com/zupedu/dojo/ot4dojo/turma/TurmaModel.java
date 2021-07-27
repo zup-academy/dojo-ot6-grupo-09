@@ -20,6 +20,7 @@ public class TurmaModel {
 
   @NotNull
   private LocalDate iniciaEm;
+
   @NotNull
   private LocalDate terminaEm;
 

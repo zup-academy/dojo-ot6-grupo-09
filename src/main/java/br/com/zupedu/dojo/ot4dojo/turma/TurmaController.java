@@ -24,9 +24,8 @@ public class TurmaController {
     public ResponseEntity<TurmaResponse> addTurma (@RequestBody @Valid TurmaDTO request){
     	
     	Optional<TurmaModel> turma = turmaRepository.findByNome(request.getNome());
-    	
-    	if(turma.isEmpty()) {
-    		
+    	if(turma.isPresent()) {
+    		return ResponseEntity.badRequest().build();
     	}
         
     	TurmaModel newTurma = request.toModel();
